@@ -58,7 +58,7 @@ Managed primarily via `data.ts`:
 *   **Styling:** Tailwind CSS (with custom utility classes like `.glass-panel`)
 *   **Icons:** Lucide React
 *   **AI Integration:** `@google/genai` SDK (Gemini API)
-*   **Deployment:** Cloud Run (via AI Studio Build)
+*   **Deployment:** GitHub Pages (via GitHub Actions)
 
 ### 6. TBD (To Be Determined) / Future Enhancements
 The following items require further definition, content population, or technical implementation:
