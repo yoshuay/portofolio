@@ -1,10 +1,13 @@
 
 import React, { useEffect, useState } from 'react';
-import { PROJECTS } from '../data';
 import { ArrowRight, X, ChevronRight, Activity } from 'lucide-react';
 import { Project } from '../types';
 
-const ProjectSection: React.FC = () => {
+interface ProjectSectionProps {
+  projects: Project[];
+}
+
+const ProjectSection: React.FC<ProjectSectionProps> = ({ projects }) => {
   const [selectedProject, setSelectedProject] = React.useState<Project | null>(null);
   const [customImages, setCustomImages] = useState<Record<string, string>>({});
 
@@ -53,7 +56,7 @@ const ProjectSection: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {PROJECTS.map((project) => (
+          {projects.map((project) => (
             <div 
               key={project.id}
               onClick={() => setSelectedProject(project)}

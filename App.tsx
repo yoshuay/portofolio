@@ -5,27 +5,59 @@ import Hero from './components/Hero';
 import ProjectSection from './components/ProjectSection';
 import Contact from './components/Contact';
 import Chatbot from './components/Chatbot';
-import SettingsPanel from './components/SettingsPanel';
-import { EXPERIENCE, MEDIA_COVERAGES, PERSONAL_INFO } from './data';
-import { Newspaper, Building2, Calendar, Lightbulb, Target, Users, Settings } from 'lucide-react';
+import { Newspaper, Building2, Calendar, Lightbulb, Target, Users, Settings, Loader2 } from 'lucide-react';
+import { db } from './firebaseConfig';
+import { doc, getDoc } from 'firebase/firestore';
 
 const App: React.FC = () => {
-  const [showSettings, setShowSettings] = useState(false);
+  const [dbData, setDbData] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const docRef = doc(db, 'portfolio', 'main');
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          setDbData(docSnap.data());
+        } else {
+          console.log("No such document! Run /settings.html setup.");
+        }
+      } catch (e) {
+        console.error("Error fetching Firestore", e);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <Loader2 className="animate-spin text-white" size={48} />
+      </div>
+    );
+  }
+
+  // Fallback to empty context if missing
+  const personalInfo = dbData?.personalInfo || { name: '', title: '', philosophy: [] };
+  const experience = dbData?.experience || [];
+  const mediaCoverages = dbData?.mediaCoverages || [];
+  const projects = dbData?.projects || [];
 
   return (
     <div className="min-h-screen selection:bg-white/20">
       <Navbar />
       
       {/* Settings Trigger */}
-      <button 
-        onClick={() => setShowSettings(true)}
+      <a 
+        href="settings.html"
         className="fixed top-28 right-6 z-[90] p-3 rounded-full glass-panel hover:bg-white/10 transition-all text-zinc-400 hover:text-white group"
         title="Customize Portfolio"
       >
         <Settings size={20} className="group-hover:rotate-45 transition-transform" />
-      </button>
-
-      <SettingsPanel isOpen={showSettings} onClose={() => setShowSettings(false)} />
+      </a>
 
       <main>
         <Hero />
@@ -42,7 +74,7 @@ const App: React.FC = () => {
                 </p>
               </div>
               <div className="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {PERSONAL_INFO.philosophy.map((item, i) => (
+                {personalInfo.philosophy.map((item: any, i: number) => (
                   <div key={i} className="p-10 glass-panel rounded-[40px] space-y-4 hover:border-white/20 transition-all group">
                     <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center group-hover:bg-blue-500 group-hover:text-white transition-all">
                       {i === 0 ? <Target size={20} /> : i === 1 ? <Users size={20} /> : <Lightbulb size={20} />}
@@ -56,7 +88,7 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        <ProjectSection />
+        <ProjectSection projects={projects} />
 
         {/* Experience Section */}
         <section id="experience" className="py-24 bg-zinc-950">
@@ -70,7 +102,7 @@ const App: React.FC = () => {
             </div>
 
             <div className="space-y-12">
-              {EXPERIENCE.map((exp, idx) => (
+              {experience.map((exp: any, idx: number) => (
                 <div key={idx} className="group glass-panel border-white/5 p-8 sm:p-12 rounded-[32px] hover:border-white/20 transition-all duration-300">
                   <div className="flex flex-col lg:flex-row gap-8 lg:items-start justify-between">
                     <div className="space-y-4 lg:max-w-md">
@@ -90,7 +122,7 @@ const App: React.FC = () => {
                     <div className="flex-grow space-y-4">
                       <h4 className="text-[10px] font-bold uppercase tracking-widest text-white/30">Selected Impact</h4>
                       <ul className="space-y-4">
-                        {exp.achievements.map((item, i) => (
+                        {exp.achievements.map((item: string, i: number) => (
                           <li key={i} className="flex items-start space-x-4">
                             <div className="mt-2 w-1.5 h-1.5 rounded-full bg-white/20 shrink-0"></div>
                             <p className="text-zinc-400 leading-relaxed text-sm lg:text-base">{item}</p>
@@ -124,7 +156,7 @@ const App: React.FC = () => {
               </div>
 
               <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {MEDIA_COVERAGES.map((media, idx) => (
+                {mediaCoverages.map((media: any, idx: number) => (
                   <a 
                     key={idx} 
                     href={media.url}
@@ -148,8 +180,8 @@ const App: React.FC = () => {
       <footer className="py-12 border-t border-white/5 text-center bg-[#0a0a0a]">
         <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex flex-col items-start gap-1">
-             <span className="text-white font-bold text-sm tracking-tight">Yoshua Yanottama</span>
-             <span className="text-zinc-600 text-[10px] uppercase tracking-widest font-bold">Edtech & Learning Leader</span>
+             <span className="text-white font-bold text-sm tracking-tight">{personalInfo.name || 'Yoshua Yanottama'}</span>
+             <span className="text-zinc-600 text-[10px] uppercase tracking-widest font-bold">{personalInfo.title || 'Edtech & Learning Leader'}</span>
           </div>
           <div className="flex items-center space-x-6">
             <a href="#" className="text-zinc-600 hover:text-white text-xs transition-colors">Privacy</a>
