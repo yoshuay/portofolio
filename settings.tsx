@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
-import { db, seedDatabaseIfEmpty } from './firebaseConfig';
+import { db, seedDatabaseIfEmpty, forceResetToDefaults } from './firebaseConfig';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { Save, AlertCircle, Database } from 'lucide-react';
 
@@ -8,6 +8,7 @@ const SettingsApp: React.FC = () => {
   const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [resetting, setResetting] = useState(false);
   const [status, setStatus] = useState<string | null>(null);
 
   useEffect(() => {
@@ -40,6 +41,21 @@ const SettingsApp: React.FC = () => {
       console.error(e);
       setStatus("Error seeding database.");
       setLoading(false);
+    }
+  };
+
+  const handleResetToDefaults = async () => {
+    if (!confirm('This will overwrite all Firestore data with the corrected defaults from data.ts. Are you sure?')) return;
+    setResetting(true);
+    setStatus('Resetting to defaults...');
+    try {
+      await forceResetToDefaults();
+      setStatus('✓ Reset successful! Reloading...');
+      setTimeout(() => window.location.reload(), 1500);
+    } catch (e) {
+      console.error(e);
+      setStatus('Error resetting. Check Firebase permissions.');
+      setResetting(false);
     }
   };
 
@@ -135,10 +151,18 @@ const SettingsApp: React.FC = () => {
             </div>
 
             {/* Save Button */}
-            <div className="fixed bottom-8 left-1/2 -translate-x-1/2">
+            <div className="fixed bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-4">
+              <button 
+                onClick={handleResetToDefaults}
+                disabled={resetting || saving}
+                title="Overwrite Firestore with corrected defaults from data.ts"
+                className="bg-zinc-800 text-zinc-300 border border-white/10 px-6 py-4 rounded-full font-bold shadow-2xl flex items-center space-x-3 hover:bg-zinc-700 hover:text-white transition-all disabled:opacity-50 text-sm"
+              >
+                <span>{resetting ? 'Resetting...' : '↺ Reset to Defaults'}</span>
+              </button>
               <button 
                 onClick={handleSave}
-                disabled={saving}
+                disabled={saving || resetting}
                 className="bg-white text-black px-8 py-4 rounded-full font-bold shadow-2xl flex items-center space-x-3 hover:scale-105 transition-transform disabled:opacity-50"
               >
                 <Save size={20} />

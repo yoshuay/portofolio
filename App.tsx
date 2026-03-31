@@ -5,7 +5,7 @@ import Hero from './components/Hero';
 import ProjectSection from './components/ProjectSection';
 import Contact from './components/Contact';
 import Chatbot from './components/Chatbot';
-import { Newspaper, Building2, Calendar, Lightbulb, Target, Users, Settings, Loader2 } from 'lucide-react';
+import { Newspaper, Building2, Calendar, Lightbulb, Target, Users, Settings, Loader2, GraduationCap, MapPin } from 'lucide-react';
 import { db } from './firebaseConfig';
 import { doc, getDoc } from 'firebase/firestore';
 
@@ -43,6 +43,7 @@ const App: React.FC = () => {
   // Fallback to empty context if missing
   const personalInfo = dbData?.personalInfo || { name: '', title: '', philosophy: [] };
   const experience = dbData?.experience || [];
+  const education = dbData?.education || [];
   const mediaCoverages = dbData?.mediaCoverages || [];
   const projects = dbData?.projects || [];
 
@@ -136,6 +137,47 @@ const App: React.FC = () => {
             </div>
           </div>
         </section>
+
+        {/* Education Section */}
+        {education.length > 0 && (
+          <section id="education" className="py-24 bg-black border-y border-white/5">
+            <div className="max-w-7xl mx-auto px-6">
+              <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8 border-l border-white/10 pl-8">
+                <div>
+                  <h2 className="text-4xl sm:text-5xl font-bold mb-4 tracking-tight">Education</h2>
+                  <p className="text-zinc-500 font-medium uppercase tracking-widest text-xs">Academic background & credentials</p>
+                </div>
+                <div className="hidden md:block w-full md:w-1/3 h-[1px] bg-white/10 mb-2"></div>
+              </div>
+              <div className="space-y-8">
+                {education.map((edu: any, idx: number) => (
+                  <div key={idx} className="group glass-panel border-white/5 p-8 sm:p-12 rounded-[32px] hover:border-white/20 transition-all duration-300">
+                    <div className="flex flex-col lg:flex-row gap-8 lg:items-center justify-between">
+                      <div className="flex items-start gap-6">
+                        <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-blue-500 group-hover:text-white transition-all">
+                          <GraduationCap size={24} />
+                        </div>
+                        <div className="space-y-2">
+                          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-zinc-400">
+                            <Calendar size={12} />
+                            <span>{edu.period}</span>
+                          </div>
+                          <h3 className="text-2xl font-bold leading-tight text-white">{edu.degree} <span className="italic font-normal text-zinc-400">in {edu.field}</span></h3>
+                          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-zinc-500 font-semibold text-sm">
+                            <span className="flex items-center gap-1.5"><Building2 size={14}/> {edu.institution}</span>
+                            <span className="text-white/20">•</span>
+                            <span className="flex items-center gap-1.5"><MapPin size={14}/> {edu.location}</span>
+                          </div>
+                          {edu.note && <p className="text-zinc-500 text-sm leading-relaxed pt-1">{edu.note}</p>}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Media Coverage */}
         <section id="media" className="py-24 bg-[#0a0a0a]">

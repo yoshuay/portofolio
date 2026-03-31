@@ -24,6 +24,15 @@ export interface Media {
   url: string;
 }
 
+export interface Education {
+  degree: string;
+  field: string;
+  institution: string;
+  location: string;
+  period: string;
+  note?: string;
+}
+
 export interface ChatMessage {
   role: 'user' | 'model';
   text: string;

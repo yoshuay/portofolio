@@ -1,26 +1,26 @@
 
-import { Project, Experience, Media } from './types';
+import { Project, Experience, Education, Media } from './types';
 
 export const PERSONAL_INFO = {
   name: "Yoshua Yanottama",
   title: "Learning Experience | Edtech Leader | Instructional Design",
-  summary: "A highly strategic and visionary learning leader with over 11 years of extensive experience leveraging EdTech innovation to architect scalable organizational capacity and drive exceptional performance metrics. Expertly proficient in the implementation of the ADDIE and SAM models, Instructional Systems Design (ISD), and the integration of advanced AI-powered learning ecosystems to empower over 5 million learners across diverse markets in the Global South. A proven track record of aligning global educational standards with local sociocultural contexts, ensuring high-fidelity curriculum localization and pedagogical integrity at an institutional scale.",
+  summary: "Learning support and enablement specialist with over 11 years of experience in EdTech — taking curriculum and teacher operations from the ground up to national and international scale. Skilled in instructional systems design, AI-assisted learning tools, and building educator communities that actually stick. Track record of delivering learning programs for more than 5 million learners across diverse markets in the Global South.",
   philosophy: [
     {
-      title: "Data-Driven Heutagogy",
-      description: "Transcending traditional pedagogical boundaries to foster self-determined learning environments. I utilize granular learning analytics to map learner agency, optimize retention, and drive quantifiable curriculum outcomes through iterative feedback loops."
+      title: "Learning Analytics in Practice",
+      description: "I use data not for its own sake, but to find the friction — the point where learners drop off, disengage, or fall behind — and design specifically to fix that. Good curriculum is built on evidence, not intuition alone."
     },
     {
-      title: "Scalable Localization Frameworks",
-      description: "Bridging the critical gap between rigorous global standards—such as the US Common Core and CEFR—and hyper-local educational contexts through the design of systematic, high-throughput alignment workflows and quality assurance protocols."
+      title: "Localization Over Translation",
+      description: "Localizing a learning program means questioning whether the underlying logic of the content fits the learner's context — culturally, linguistically, and pedagogically. I've done this at scale for US and global curricula adapted to Indonesian K–12 and professional settings."
     },
     {
-      title: "Immersive Cognitive Innovation",
-      description: "Strategically deploying Extended Reality (XR) technologies, including AR and VR, not as supplementary novelties but as core instruments for high-retention technical training, sophisticated language acquisition, and multi-sensory cognitive engagement."
+      title: "Immersive Tech with Intent",
+      description: "XR and AI tools are only valuable if they solve a problem that simpler formats can't. I've deployed AR/VR and adaptive learning tools in contexts where they genuinely moved the needle — not as a showcase, but as a design response."
     },
     {
-      title: "AI-Augmented Instructional Design",
-      description: "Integrating Large Language Models (LLMs) and generative AI to automate curriculum mapping, personalize learning pathways at scale, and reduce instructional development lifecycle times by up to 50% without compromising educational depth."
+      title: "Educator-First Capacity Building",
+      description: "The most scalable investment in learning quality is developing the educators themselves. Whether designing certifications for 2,300+ online instructors or building structured CPD tracks, I prioritize the people who deliver learning, not just the content."
     }
   ],
   contact: {
@@ -30,132 +30,177 @@ export const PERSONAL_INFO = {
     location: "Jakarta, Indonesia & Taipei City, Taiwan"
   },
   skills: [
-    "Advanced ADDIE Model", "Heutagogical Design", "Predictive Learning Analytics", "Macro-level Curriculum Development", 
-    "AR/VR Learning Ecosystems", "Strategic Project Management", "Multi-tier Stakeholder Management", 
-    "Digital Credentialing & Blockchain Identity", "Gamification Mechanics", "Instructional Design (ISD)", "AI Implementation Strategy"
+    "ADDIE & SAM Models", "Instructional Systems Design (ISD)", "Learning Analytics", "Curriculum Development",
+    "AR/VR Learning Experiences", "Project Management", "Stakeholder Management",
+    "Digital Credentialing", "Gamification Design", "AI Implementation in L&D", "SCORM / LMS"
   ]
 };
+
+export const EDUCATION: Education[] = [
+  {
+    degree: "Master of Education",
+    field: "Computer Education",
+    institution: "National Taiwan Normal University (NTNU)",
+    location: "Taipei, Taiwan",
+    period: "2024 – Present",
+    note: "Currently enrolled. Focused on technology-integrated pedagogy and AI in education."
+  }
+];
 
 export const PROJECTS: Project[] = [
   {
     id: "khan-academy",
     title: "Khan Academy Localization",
     category: "Curriculum Mapping | Instructional Design",
-    description: "Spearheaded the comprehensive, end-to-end localization and national alignment of the Khan Academy US Common Core mathematical framework for the Indonesian K-12 curriculum. This multi-year initiative involved deep-level cognitive mapping to ensure that international pedagogical strategies translated effectively into local classroom realities while maintaining the signature instructional style of the platform.",
+    description: "Led the end-to-end localization of the Khan Academy US Common Core mathematics framework for the Indonesian K–12 curriculum. The project ran through EFA Learning Center and was subsequently adopted nationally for home-based learning during the COVID-19 pandemic. This required deep alignment work to ensure international pedagogical approaches translated meaningfully into Indonesian classroom contexts.",
     imageUrl: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop",
     tags: ["Curriculum Mapping", "Localization", "Instructional Design"],
     details: [
-      "Conducted granular mapping of over 500 Indonesian Math 'Basic Competence' (KD) standards against the US Common Core hierarchy, identifying critical gaps and cognitive overlaps.",
-      "Engineered and managed a high-throughput production pipeline for the creation and review of 1,000+ localized learning videos, technical articles, and formative exercise sets.",
-      "Orchestrated a cross-functional, distributed team of 12 senior educators, subject matter experts (SMEs), translators, and professional voice-over artists.",
-      "Achieved a 95% alignment accuracy verified by rigorous independent reviews and local Ministry of Education (Kemendikbud) standards.",
-      "Implemented a standardized 'Visual Identity' protocol for instructional videos, utilizing Wacom tablets and Camtasia for high-fidelity pedagogical reproduction."
+      "Mapped over 600 localized videos, articles, and assessments to ensure alignment with Indonesian national curriculum (K-13) standards.",
+      "Managed the production and quality review of 1,000+ localized learning materials — videos, written articles, and formative exercises.",
+      "Built and coordinated a distributed team of 12 educators, voice talents, and designers across different cities.",
+      "Implemented a standardized visual identity protocol for instructional videos using Wacom tablets and Camtasia for consistent pedagogical presentation.",
+      "Content was adopted nationally for home-based learning during COVID-19, reaching students across Indonesian provinces."
     ]
   },
   {
     id: "cakap-teacher",
     title: "Cakap Teacher Academy",
     category: "Teacher Training | Capacity Building",
-    description: "Architected and operationalized a proprietary professionalization and certification framework for thousands of online instructors globally. The Cakap Teacher Academy served as the strategic backbone for scaling the instructor base by 1000% while simultaneously increasing student satisfaction and instructional consistency through a data-backed quality assurance model.",
+    description: "Designed and operationalized a proprietary professionalization and certification framework for Cakap's global instructor base. The Teacher Academy became the backbone for scaling and standardizing instructional quality — bringing structure, professional identity, and measurable outcomes to a fast-growing gig-economy teaching workforce.",
     imageUrl: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1200&auto=format&fit=crop",
     tags: ["Project Management", "Teacher Operations", "Impact Design"],
     details: [
-      "Strategically onboarded and certified over 2,300 educators from 12 different countries within a compressed 18-month roadmap.",
-      "Formulated a structured Continuous Professional Development (CPD) track that reduced instructor churn by 40% year-over-year.",
-      "Designed an innovative, gamified instructor evaluation system (IES) that directly correlated teaching performance with student retention, leading to a 15% improvement in NPS.",
-      "Secured a high 85% instructor compliance rate with newly introduced digital teaching standards and proprietary LMS interactions.",
-      "Facilitated 400% business growth in the teacher-led segment through the design of scalable pedagogical playbooks."
+      "Onboarded and certified over 2,300 educators from 12 countries through structured induction and standardized teaching quality reviews.",
+      "Designed a structured Continuous Professional Development (CPD) track with tiered certifications for teaching performance and digital platform fluency.",
+      "Built a gamified instructor evaluation system (IES) to make performance feedback practical, consistent, and motivating for distributed instructors.",
+      "Achieved 85% instructor compliance with newly introduced digital teaching standards and proprietary LMS interaction requirements.",
+      "The Teacher Academy supported 400% business growth in the teacher-led segment and a 1000% increase in the overall instructor base during the program's lifespan."
     ]
   },
   {
     id: "cest",
-    title: "CEST - Cakap English Standardized Test",
+    title: "CEST — Cakap English Standardized Test",
     category: "Digital Credentials | Product Development",
-    description: "Directed the complete lifecycle development and go-to-market strategy for Indonesia's first homegrown, high-validity digital English proficiency assessment. CEST was designed to disrupt the high-cost international testing market by providing a localized, CEFR-aligned alternative accessible to institutional and retail users alike.",
+    description: "Directed the full lifecycle development of Indonesia's first locally-built, CEFR-aligned English proficiency assessment. CEST was designed as an accessible, institutionally credible alternative for the Indonesian market — both retail and B2B — backed by a structured item development and validation process.",
     imageUrl: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=1200&auto=format&fit=crop",
     tags: ["Go-to-market", "Product Strategy", "Assessment Design"],
     details: [
-      "Acquired 20,000+ individual test takers and successfully integrated the assessment into the recruitment pipelines of 150+ institutional partners.",
-      "Designed the CEFR-aligned assessment framework, incorporating adaptive testing logic to reduce test duration while maintaining psychometric validity.",
-      "Realized an 80% reduction in institutional testing costs compared to traditional legacy providers (TOEFL/IELTS) by re-engineering the digital delivery stack.",
-      "Pioneered the integration of secure digital credentialing, issuing blockchain-verified certificates to prevent credential fraud.",
-      "Managed the technical validation study with academic partners to establish the platform's concurrent validity and reliability coefficients."
+      "Scaled CEST to 20,000+ individual test takers and integrated the assessment into the hiring pipelines of 150+ institutional partners.",
+      "Designed the CEFR-aligned assessment framework, incorporating adaptive testing logic to reduce test duration while maintaining psychometric rigour.",
+      "Built an affordable, locally-hosted digital delivery stack as a credible alternative to legacy international providers for Indonesian institutional users.",
+      "Managed secure digital credentialing infrastructure for certificate issuance and verification."
     ]
   },
   {
     id: "usaid",
     title: "USAID Climate Finance Module",
     category: "E-Learning Development",
-    description: "Served as the lead instructional developer for a global, multi-million dollar USAID-funded initiative focused on climate finance policy. The project necessitated the transformation of highly dense, technical environmental policy documents into an engaging and accessible interactive e-learning curriculum for diverse global stakeholders.",
+    description: "Served as lead instructional developer for a USAID-funded initiative focused on climate finance policy. The project required turning dense environmental policy documentation into accessible, interactive e-learning for diverse global stakeholders — collaborating with subject matter experts from the US and UK.",
     imageUrl: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop",
     tags: ["Articulate Storyline", "LMS", "SCORM"],
     details: [
-      "Authored over 36 hours of SCORM-compliant, interactive e-learning modules using Articulate Storyline 360.",
-      "Collaborated with diverse subject matter experts across the US and UK to synthesize complex global climate finance mechanisms into actionable learning units.",
-      "Optimized all digital learning assets for low-bandwidth environments to ensure equitable access for participants in rural and developing regions.",
-      "Maintained an exceptional 4.8/5.0 learner satisfaction rating during the initial pilot phase with over 1,000 participants from international NGOs.",
-      "Designed a comprehensive 'Toolkit for Sustainability' to enable local government agencies to continue learning post-program."
+      "Authored 36 hours of SCORM-compliant, interactive e-learning modules using Articulate Storyline 360.",
+      "Collaborated with SMEs across the US and UK to synthesize complex climate finance mechanisms into structured, accessible learning units.",
+      "Worked with a US Project Manager and UK Instructional Design counterpart through the full design-to-delivery cycle.",
+      "Adapted content for digital delivery in contexts where bandwidth and device access varied across participant regions."
     ]
   },
   {
     id: "arvr",
     title: "AR & VR Learning Experience",
     category: "WEF Showcase | Immersive Learning",
-    description: "Conceptualized and developed a high-profile 'metacourse' prototype demonstrating the future of language acquisition through immersive technology. This innovative platform was selected as a key digital showcase for the Indonesian Pavilion at the World Economic Forum 2022 in Davos.",
+    description: "Conceptualized and developed a 'metacourse' prototype demonstrating language acquisition through immersive XR technology. The platform was selected as a digital showcase at the Indonesian Pavilion at the World Economic Forum 2022 in Davos, and was developed in partnership with AR&Co.",
     imageUrl: "https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?q=80&w=1200&auto=format&fit=crop",
     tags: ["Unity3D", "Meta Quest", "XR Design"],
     details: [
-      "Successfully showcased the prototype to global heads of state and tech leaders at the World Economic Forum (WEF) 2022 Indonesia Pavilion.",
-      "Developed branching narrative architectures within Unity3D that responded dynamically to user voice input and decision-making.",
-      "Conducted usability research indicating a 30% increase in learner self-confidence during conversational scenarios compared to traditional 2D apps.",
-      "Engineered the platform for multi-modal deployment, supporting both Meta Quest 2 headsets and standardized Android mobile devices.",
-      "Blended high-fidelity 3D environments with localized narration to create a culturally responsive immersive environment."
+      "Showcased the prototype at the World Economic Forum (WEF) 2022 Indonesia Pavilion in Davos.",
+      "Developed branching narrative architectures in Unity3D with interactive dialogue and decision-making scenarios to simulate realistic language conversations.",
+      "Engineered for multi-modal deployment on Meta Quest 3 headsets and Android mobile devices.",
+      "Blended 3D environments with localized narration to create a culturally grounded immersive language learning experience."
+    ]
+  },
+  {
+    id: "ai-assessment",
+    title: "AI Assessment Tools",
+    category: "AI in Education | Assessment Design",
+    description: "Led the design and implementation of AI-assisted assessment tools to automate and scale grading and feedback for large learner populations. The initiative directly addressed bottlenecks in manual grading workflows and improved consistency of feedback delivery at scale.",
+    imageUrl: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?q=80&w=1200&auto=format&fit=crop",
+    tags: ["AI Implementation", "Assessment", "EdTech"],
+    details: [
+      "Achieved 90% agreement rate between AI-grader and human expert evaluations across deployed assessments.",
+      "Scaled assessment delivery to over 100,000 test takers across the platform.",
+      "Reduced grading turnaround time significantly, enabling faster feedback loops for learners and instructors.",
+      "Collaborated with technical teams to train and validate AI scoring models against human-annotated rubrics."
     ]
   }
 ];
 
 export const EXPERIENCE: Experience[] = [
   {
-    role: "Head of Learning Design & Innovation",
+    role: "Learning Design & Enablement",
     company: "Cakap",
-    location: "Jakarta/Remote",
-    period: "Feb 2023 - Present",
+    location: "Jakarta / Remote",
+    period: "Jul 2020 – Aug 2025",
     achievements: [
-      "Spearheading the R&D and implementation of AI-driven personalized learning paths for a user base exceeding 1 million active learners.",
-      "Orchestrating the B2B institutional expansion strategy by architecting bespoke instructional frameworks for major corporations and government agencies.",
-      "Decreased the curriculum development lifecycle by 50% through the implementation of Agile Instructional Design and automated mapping tools.",
-      "Directing a $2M+ annual content production and educational talent development budget with a focus on high-ROI learning outcomes.",
-      "Providing strategic consultation to international educational bodies, including the Timor-Leste INDMO, on scaling digital education infrastructure."
+      "Led R&D and integration of AI-driven learning tools serving Cakap's B2C user base of more than 5 million students across diverse markets.",
+      "Orchestrated B2B institutional expansion by designing bespoke instructional frameworks for corporations and government agencies.",
+      "Reduced production cost by 50% through implementation of Agile instructional design workflows and automated curriculum mapping tools.",
+      "Presented at SEAMEO–INDMO Skills Week in Timor-Leste on digital education infrastructure and cross-border teacher professionalization.",
+      "Managed the end-to-end design of the Cakap Teacher Academy and CEST product, from concept through national deployment.",
+      "Built and led the instructional design and content function, including team structure, workflows, and quality assurance standards."
     ]
   },
   {
-    role: "Senior Manager, Instructional Design",
-    company: "Cakap",
+    role: "Co-founder & Learning Consultant",
+    company: "EFA Learning Center",
     location: "Jakarta",
-    period: "Aug 2021 - Jan 2023",
+    period: "2018 – 2020",
     achievements: [
-      "Designed the comprehensive performance management and pedagogical upskilling framework for a workforce of 1,000+ distributed online tutors.",
-      "Oversaw the successful strategic transition from purely synchronous learning to a high-margin blended learning model, improving gross margins by 20%.",
-      "Managed the end-to-end design and delivery of high-profile innovation projects, including AR/VR showcases for global economic summits.",
-      "Led the recruitment and professional development of a 15-person instructional design and content team."
+      "Co-founded and ran an independent learning center focused on K–12 supplementary education and curriculum consulting.",
+      "Originated the Khan Academy Localization project, which was later adopted nationally for home-based learning during COVID-19.",
+      "Consulted on curriculum alignment and instructional design for schools and education partners in the Jakarta area.",
+      "Built educator teams and managed content production pipelines for localized learning material development."
+    ]
+  },
+  {
+    role: "Science Teacher",
+    company: "UPH College",
+    location: "Jakarta",
+    period: "2013 – 2018",
+    achievements: [
+      "Taught science subjects at secondary level for 5 years, developing classroom curriculum and assessment materials.",
+      "Gained foundational experience in learner-centered instruction that directly informed later instructional design work.",
+      "Identified the gap between formal schooling and accessible supplementary learning that led to co-founding EFA Learning Center.",
+      "Integrated early digital tools and multimedia into classroom delivery to improve student engagement."
     ]
   }
 ];
 
 export const MEDIA_COVERAGES: Media[] = [
   {
-    title: "Mime Asia - Mandarin for Kids through AR",
-    description: "A comprehensive analysis of how we leveraged Augmented Reality to disrupt early childhood language learning and improve phonemic awareness.",
-    url: "#"
+    title: "Mime Asia — Cakap Collaborates with AR&Co to Bring AR Technology",
+    description: "Coverage on how Cakap partnered with AR&Co to develop augmented reality language learning experiences, including the WEF 2022 showcase.",
+    url: "https://mime.asia"
   },
   {
-    title: "The Ken - Solving the EdTech Talent Crunch",
-    description: "A feature discussing the strategic impact of the Teacher Academy in professionalizing the gig-economy tutoring workforce in Southeast Asia.",
-    url: "#"
+    title: "Mime Asia — Cakap Startup to Recruit 1,000 Teachers through Teacher Academy",
+    description: "Feature on the launch and ambitions of the Cakap Teacher Academy, profiling its approach to professionalizing Indonesia's online tutoring workforce.",
+    url: "https://mime.asia"
   },
   {
-    title: "Jakarta Post - Edtech Expansion in Timor-Leste",
-    description: "Reporting on our international partnership to elevate technical and vocational education standards through digital cross-border collaboration.",
-    url: "#"
+    title: "The Ken — How Indonesian EdTechs Zenius and Cakap Are Solving a Teacher Talent Crunch",
+    description: "In-depth analysis of the strategic impact of the Teacher Academy in professionalizing the gig-economy tutoring workforce across Southeast Asia.",
+    url: "https://the-ken.com"
+  },
+  {
+    title: "The Jakarta Post — Edtech Cakap Takes Part in Indonesia Pavilion, WEF 2022",
+    description: "Reporting on Cakap's AR/VR language learning prototype showcased at the World Economic Forum in Davos as part of the Indonesian Pavilion.",
+    url: "https://www.thejakartapost.com"
+  },
+  {
+    title: "The Jakarta Post — Cakap: Pioneering Indonesian EdTech in Timor-Leste",
+    description: "Coverage of Cakap's international expansion and partnership to elevate technical and vocational education quality through digital cross-border collaboration.",
+    url: "https://www.thejakartapost.com"
   }
 ];
